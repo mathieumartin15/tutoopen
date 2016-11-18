@@ -1,0 +1,4 @@
+mm_platform:
+    resource: "@MMPlatformBundle/Resources/config/routing.yml"
+    prefix:   /platform
+

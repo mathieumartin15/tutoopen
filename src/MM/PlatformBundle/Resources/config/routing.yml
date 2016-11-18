@@ -1,0 +1,46 @@
+
+mm_platform_home:
+    path:    /{page}
+    defaults:
+        _controller: MMPlatformBundle:Advert:index
+        page: 1
+    requirements:
+        page: \d*
+
+mm_platform_view:
+    path:     /advert/{id}
+    defaults:
+        _controller: MMPlatformBundle:Advert:view
+    requirements:
+        id: \d+
+
+mm_platform_view_slug:
+    path:    /{year}/{slug}.{_format}
+    defaults:
+        _controller: MMPlatformBundle:Advert:viewSlug
+        _format:      html
+    requirements:
+        year:    \d{4}
+        format: html|xml
+
+mm_platform_add:
+
+    path:     /add
+    defaults:
+        _controller: MMPlatformBundle:Advert:add
+
+mm_platform_edit:
+
+    path:     /edit/{id}
+    defaults:
+        _controller: MMPlatformBundle:Advert:edit
+    requirements:
+        id: \d+
+
+mm_platform_delete:
+
+    path:     /delete/{id}
+    defaults:
+        _controller: MMPlatformBundle:Advert:delete
+    requirements:
+        id: \d+

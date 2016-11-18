@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-sale=1">
+
+
+  <title>{% block title %}MM Plateforme {% endblock %}</title>
+
+  {% block stylesheets %}
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  {% endblock %}
+</head>
+<body>
+<div class="container">
+  <div id="header" class="jumbotron">
+    <h1>Ma plateforme d'annonces</h1>
+    <p>
+      Trouve toi du travail !
+    </p>
+    <p>
+      <a class="btn btn-primary btn-lg" href="http://www.google.fr">Google.fr!</a>
+    </p>
+  </div>
+
+  <div class="row">
+    <div id="menu" class="col-md-3">
+      <h3>Les Annonces</h3>
+      <ul class="nav nav-pills nav-stacked">
+        <li>
+          <a href="{{ path('mm_platform_home') }}">Accueil</a>
+        </li>
+        <li>
+          <a href="{{ path('mm_platform_add') }}">Ajouter une annonce</a>
+        </li>
+
+      </ul>
+      <h4>Dernières Annonces</h4>
+      {{ render(controller("MMPlatformBundle:Advert:menu", {'limit': 3})) }}
+    </div>
+    <div class="col-md-9">
+      {% block body %}
+      {% endblock %}
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <p>ok d'accord @ {{ 'now'|date('Y') }} oui bonjour.</p>
+  </footer>
+</div>
+
+{% block javascript %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/boostrap/3.2.0/js/boostrap.min.js"></script>
+
+{% endblock %}
+
+</body>
+</html>
